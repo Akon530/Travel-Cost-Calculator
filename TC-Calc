@@ -1,0 +1,35 @@
+destination = input("Destination Location: ") #takes in location as string
+hotel = float(input("Number of Hotal Nights: ")) #takes in hotel nights as float
+car = float(input("Number of Rental Car Days: ")) #takes in rental car days as float
+spend = float(input("Spending Money: ")) #takes in spending money as float
+
+NYPrice = 350.0 #sets airfare price of NY
+LAPrice = 475.0 #sets airfare price of LA
+CHPrice = 288.0 #sets airfare price of CH
+
+t_price = 0
+
+if destination == "New York": #checks if input location is New York
+    t_price = NYPrice #sets travel price as NY airfair price
+elif destination == "Los Angeles": #checks if input location is Los Angeles
+    t_price = LAPrice #sets travel price as LA airfair price
+elif destination == "Chicago": #checks if input location is Chicago
+    t_price = CHPrice #sets travel price as CH airfair price
+else:
+    print("Invalid Destination Name") #outputs if no valid location is recieved
+
+h_price = 150*hotel #sets hotel price by multiplying hotel nights by 150, the given rate
+c_price = 50*car #sets car price by multiplying car days by 50, the given rate
+
+if car >= 7: #checks if car days is seven or greater
+    c_price = c_price-50 #discounts car price by 50
+elif car >=3: #checks if car days us three or greater, if previous condition not met
+    c_price = c_price-20 #discounts car price by 20
+
+print("") #divider
+print("Budget: ") #title
+print("Travel Cost: "+str(t_price)) #prints travel cost
+print("Hotel Cost: "+str(h_price)) #prints hotel cost
+print("Car Cost: "+str(c_price)) #prints car cost
+print("Spending Money: "+str(spend)) #prints spending money
+print("Total Cost: "+str(t_price+h_price+c_price+spend)) #adds and prints total expenses
